@@ -1,0 +1,66 @@
+---
+
+## **Kafka & Event-Driven Architecture — Quick Note**
+
+### **Core Idea**
+
+> **Producer** sends events → **Kafka stores in topics** → **Consumers** subscribed to those topics automatically get the events.
+
+---
+
+### **How It Works**
+
+1. **Producer**
+
+   * Creates an **event** (data) and sends it to **Kafka**.
+   * Example: `"OrderPlaced"`, `"PhotoUploaded"`, `"UserSignedUp"`.
+
+2. **Kafka Topic**
+
+   * Like a **named mailbox** (e.g., `"orders"`, `"notifications"`).
+   * Kafka stores events in order and can deliver them to many consumers.
+
+3. **Consumer**
+
+   * Already **subscribed** to a topic.
+   * Automatically **receives events** as soon as they are sent to that topic.
+   * Runs code to process the event.
+
+---
+
+### **Key Points to Remember**
+
+* **Producer & consumer don’t know each other** — they only know the topic name.
+* **Loose coupling** = services work independently.
+* **Multiple consumers** can get the same event at the same time.
+* Events can be **replayed** if needed.
+* Use **groups** to balance load between multiple consumers doing the same work.
+
+---
+
+### **Real-World Uses**
+
+* Notifications (Facebook likes, comments)
+* Order processing (Amazon, Flipkart)
+* Real-time dashboards (YouTube views, stock trading)
+* Background processing (video encoding, image compression)
+* Log aggregation (Netflix, Uber)
+
+---
+
+### **Analogy**
+
+* **Topic** = WhatsApp group.
+* **Producer** = Person sending a message.
+* **Consumer** = Everyone in the group — all receive the message instantly.
+
+---
+
+### **Why Use It**
+
+* Scale without breaking existing code.
+* Process things in real-time.
+* Add new services easily without touching existing ones.
+
+---
+
